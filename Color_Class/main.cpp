@@ -7,8 +7,11 @@
 
 auto main() -> int
 {
-	Color4 Color = Color4();
-	Color = Color4::F(1.0f, 0.5f, 0.6f, 1.0f);
+	Color4 Color = 0xAABBCCFF;
+
+	printf("Full: 0x%p\n", Color.RGBA());
+
+	/*Color = Color4::F(1.0f, 0.5f, 0.6f, 1.0f);
 	Color = Color4::I(255, 255, 255, 255);
 
 	Color -= Color4::I(100, 100, 100, 100);
@@ -39,7 +42,7 @@ auto main() -> int
 	printf("R: %f\n", color_f[0]);
 	printf("G: %f\n", color_f[1]);
 	printf("B: %f\n", color_f[2]);
-	printf("A: %f\n", color_f[3]);
+	printf("A: %f\n", color_f[3]);*/
 
 	std::cin.get();
 

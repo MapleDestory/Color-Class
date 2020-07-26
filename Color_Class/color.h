@@ -25,7 +25,15 @@ public:
 	Color4()
 		: R(0), G(0), B(0), A(0)
 	{}
-	
+
+	~Color4()
+	{
+		R = 0;
+		G = 0;
+		B = 0;
+		A = 0;
+	}
+
 	Color4(uc32_t Color)
 	{
 		B = static_cast<uc8_t>(Color >> 0x00);
@@ -45,7 +53,23 @@ public:
 	Color4(uc8_t InR, uc8_t InG, uc8_t InB, uc8_t InA)
 		: R(InR), G(InG), B(InB), A(InA)
 	{}
-
+public:
+	uc32_t ABGR()
+	{
+		return static_cast<uc32_t>(
+			(((A) & 0xFF) << 0x18) |
+			(((B) & 0xFF) << 0x00) |
+			(((G) & 0xFF) << 0x08) |
+			(((R) & 0xFF) << 0x10));
+	}
+	uc32_t RGBA()
+	{
+		return static_cast<uc32_t>(
+			(((A) & 0xFF) << 0x18) |
+			(((R) & 0xFF) << 0x10) |
+			(((G) & 0xFF) << 0x08) |
+			(((B) & 0xFF) << 0x00));
+	}
 public:
 	static Color4 I(uc8_t InR, uc8_t InG, uc8_t InB, uc8_t InA)
 	{
